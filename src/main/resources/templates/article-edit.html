@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier Article</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Modifier Article</h1>
+
+<form th:action="@{/articles/update}" th:object="${article}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    <input th:field="*{title}" placeholder="Titre de l'article" required>
+    <textarea th:field="*{content}" placeholder="Contenu..." rows="5"></textarea>
+
+    <button type="submit">Enregistrer</button>
+    <a class="btn-back" href="/articles">Retour</a>
+</form>
+
+</body>
+</html>

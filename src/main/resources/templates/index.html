@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Produits</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">Produits</a>
+    <a href="/articles">Articles</a>
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit">Se déconnecter</button>
+    </form>
+</div>
+
+<h1>Liste des produits</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.description}"></td>
+        <td th:text="${product.price} + ' MRU'"></td>
+        <td>
+            <div class="action-buttons">
+                <a class="btn-edit" th:href="@{/products/edit/{id}(id=${product.id})}">Modifier</a>
+                <a class="btn-delete"
+                   th:href="@{/products/delete/{id}(id=${product.id})}"
+                   onclick="return confirm('Supprimer cet produit?')">
+                    Supprimer
+                </a>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<h2>Ajouter un Produit</h2>
+
+<form th:action="@{/products/add}" th:object="${newProduct}" method="post">
+    <input th:field="*{name}" placeholder="Nom du produit" required>
+    <input th:field="*{description}" placeholder="Description">
+    <input th:field="*{price}" type="number" step="0.01" placeholder="Prix" required>
+    <button type="submit">Ajouter</button>
+</form>
+
+</body>
+</html>

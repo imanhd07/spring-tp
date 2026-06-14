@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Articles</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="nav">
+    <a href="/">Produits</a>
+    <a href="/articles">Articles</a>
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit">Se déconnecter</button>
+    </form>
+</div>
+
+<h1>Liste des articles</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Contenu</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="article : ${articles}">
+        <td th:text="${article.id}"></td>
+        <td th:text="${article.title}"></td>
+        <td th:text="${article.content}"></td>
+        <td>
+            <div class="action-buttons">
+                <a class="btn-edit" th:href="@{/articles/edit/{id}(id=${article.id})}">Modifier</a>
+                <a class="btn-delete"
+                   th:href="@{/articles/delete/{id}(id=${article.id})}"
+                   onclick="return confirm('Supprimer cet article ?')">
+                    Supprimer
+                </a>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<h2>Ajouter un Article</h2>
+
+<form th:action="@{/articles/add}" th:object="${newArticle}" method="post">
+    <input th:field="*{title}" placeholder="Titre de l'article" required>
+    <textarea th:field="*{content}" placeholder="Contenu..." rows="4"></textarea>
+    <button type="submit">Publier</button>
+</form>
+
+</body>
+</html>

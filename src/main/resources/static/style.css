@@ -1,0 +1,179 @@
+:root {
+    --primary: #3498db;
+    --primary-hover: #2980b9;
+    --bg: #f4f8fb;
+    --border: #dce6f1;
+    --text: #2c3e50;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    margin: 40px;
+    text-align: center;
+    color: var(--text);
+}
+
+h1, h2 {
+    color: var(--primary);
+    text-align: center;
+}
+
+.nav {
+    margin-bottom: 25px;
+}
+
+.nav a {
+    color: var(--primary);
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.nav a:hover {
+    color: var(--primary-hover);
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+th {
+    background: var(--primary);
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+input,
+textarea {
+    display: block;
+    width: 320px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+.actions,
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-action,
+.btn-back {
+    background: var(--primary);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-edit:hover,
+.btn-delete:hover,
+.btn-action:hover,
+.btn-back:hover {
+    background: var(--primary-hover);
+}
+/* ===== User Menu ===== */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-menu-wrapper {
+    position: relative;
+}
+
+.user-menu-btn {
+    background: var(--primary);
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.user-menu-btn:hover {
+    background: var(--primary-hover);
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    min-width: 170px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.user-dropdown.open {
+    display: block;
+}
+
+.user-dropdown a,
+.user-dropdown .logout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    text-align: left;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.user-dropdown a:hover,
+.user-dropdown .logout-btn:hover {
+    background: var(--bg);
+    color: var(--primary);
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav button {
+    margin: 0;
+    padding: 6px 14px;
+    width: auto;
+}
